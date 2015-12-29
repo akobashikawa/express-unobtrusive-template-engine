@@ -20,7 +20,7 @@ This is an example of how to work with cheerio to provide unobtrusive templating
 - Open ```http://localhost:3000``` in a browser
 
 ## Templating
-- In ```app.js```, tempating block is replaced by a simple custom template engine, based in the example of Express documentation: ```http://expressjs.com/en/advanced/developing-template-engines.html```.
+- In ```app.js```, usual templating block is replaced by a simple custom template engine, based in the example of Express documentation: ```http://expressjs.com/en/advanced/developing-template-engines.html```.
 
 ```javascript
 // view engine setup
