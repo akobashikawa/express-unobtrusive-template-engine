@@ -31,14 +31,87 @@ app.engine('html', function(filePath, options, callback) {
         if (err) return callback(new Error(err));
         var html = content.toString();
         $ = cheerio.load(html);
-        options.replaces($);
+        if (typeof options.replaces === 'function') {
+            options.replaces($);
+        }
         var rendered = $.html();
         return callback(null, rendered);
+    });
+});
+
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);console.log(err.status);
+    res.render('error', {
+        replaces: function($) {
+            $('title').text('Error');
+            $('h1.title').text('Error');
+            $('.content .message').text(err.message);
+            $('.content .status').text(err.status.toString());
+            $('.content .stack').text(err.stack);
+        }
     });
 });
 ```
 
 - ```views/*.html``` are templates. Templates are simple html. No template language is required.
+
+index.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Title]</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <h1 class="title">[Title]</h1>
+    <div class="content">
+        [Content]
+    </div>
+</body>
+</html>
+```
+
+about.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Title]</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <h1 class="title">[Title]</h1>
+    <div class="content">
+        [Content]
+    </div>
+</body>
+</html>
+```
+
+error.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Title]</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <h1 class="title">[Title]</h1>
+    <div class="content">
+        <div class="message">[Message]</div>
+        <div class="status">[Status]</div>
+        <pre class="stack">[Stack]</pre>
+    </div>
+</body>
+</html>
+```
+
+
 - ```routes/index.js``` implements actions for defined routes, as usual in Express.
 
 ```javascript
@@ -48,6 +121,16 @@ router.get('/', function(req, res, next) {
             $('title').text('Home');
             $('h1.title').text('Home');
             $('.content').text('¡Hola Mundo!');
+        }
+    });
+});
+
+router.get('/about', function(req, res, next) {
+    res.render('about', {
+        replaces: function($) {
+            $('title').text('About');
+            $('h1.title').text('About');
+            $('.content').text('Acerca de esta app');
         }
     });
 });
