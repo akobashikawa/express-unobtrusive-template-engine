@@ -38,7 +38,6 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 
 app.use('/', routes);
-app.use('/users', users);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
