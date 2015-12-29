@@ -19,6 +19,10 @@ This is an example of how to work with cheerio to provide unobtrusive templating
 - ```$ npm start````
 - Open ```http://localhost:3000``` in a browser
 
+## Branches
+- simple: Simple example
+- bootstrap: For bootstrap theme
+
 ## Templating
 - In ```app.js```, usual templating block is replaced by a simple custom template engine, based in the example of Express documentation: ```http://expressjs.com/en/advanced/developing-template-engines.html```.
 
