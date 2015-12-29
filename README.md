@@ -69,6 +69,9 @@ index.html
     <div class="content">
         [Content]
     </div>
+    <p>
+        <a href="/about">About</a>
+    </p>
 </body>
 </html>
 ```
@@ -87,6 +90,9 @@ about.html
     <div class="content">
         [Content]
     </div>
+    <p>
+        <a href="/">Home</a>
+    </p>
 </body>
 </html>
 ```
