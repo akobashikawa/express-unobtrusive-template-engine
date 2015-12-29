@@ -43,6 +43,10 @@ app.engine('html', function(filePath, options, callback) {
     });
 });
 
+app.use('/', routes);
+
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);console.log(err.status);
     res.render('error', {
@@ -56,9 +60,6 @@ app.use(function(err, req, res, next) {
     });
 });
 
-app.use('/', routes);
-
-app.use(express.static(path.join(__dirname, 'public')));
 ```
 
 - ```public/*.html``` are templates. Templates are simple html. No template language is required. Note than middleware for static files in public appear *after* routes to allow public contains templates.
