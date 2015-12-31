@@ -48,7 +48,7 @@ router.get('/', function(req, res, next) {
             header($);
             footer($);
 
-            $('.site-heading h1').text('Hello World!');
+            $('.site-heading h1').text('Hello Juno!');
             $('.site-heading .subheading').text('An example of unobtrusive templating');
             var $post_template = $('.container .post-preview:first-child');
             var $pager_template = $('.container .pager');
@@ -90,8 +90,9 @@ router.get('/about', function(req, res, next) {
         replaces: function($) {
             header($);
             footer($);
-            $('.page-heading .subheading').text('An example of unobtrusive templating');
-            $('body > .container .row div').text('Este ejemplo muestra cómo se puede hacer unobtrusive templating a un tema bootstrap.');
+            $('.page-heading h1').text('About Juno');
+            $('.page-heading .subheading').text('for unobtrusive templating');
+            $('body > .container .row div').text('Juno is a simple module for unobstrusive templating.');
         }
     });
 });

@@ -26,11 +26,13 @@ This is an example of how to work with cheerio to provide unobtrusive templating
 ## Templating
 - In ```app.js```, usual templating block is replaced by a simple custom template engine, based in the example of Express documentation: ```http://expressjs.com/en/advanced/developing-template-engines.html```.
 
+juno.js
 ```javascript
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'html');
-app.engine('html', function(filePath, options, callback) {
+
+var cheerio = require('cheerio');
+var fs = require('fs');
+
+module.exports = function(filePath, options, callback) {
     fs.readFile(filePath, function(err, content) {
         if (err) return callback(new Error(err));
         var html = content.toString();
@@ -41,7 +43,17 @@ app.engine('html', function(filePath, options, callback) {
         var rendered = $.html();
         return callback(null, rendered);
     });
-});
+};
+```
+
+app.js
+```javascript
+var juno = require('./juno.js');
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'html');
+app.engine('html', juno);
 
 app.use('/', routes);
 
