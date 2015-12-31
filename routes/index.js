@@ -92,7 +92,7 @@ router.get('/about', function(req, res, next) {
             footer($);
             $('.page-heading h1').text('About Juno');
             $('.page-heading .subheading').text('for unobtrusive templating');
-            $('body > .container .row div').text('Juno is a simple module for unobstrusive templating.');
+            $('body > .container .row div').text('Juno is a simple module for unobtrusive templating.');
         }
     });
 });
