@@ -20,8 +20,9 @@ This is an example of how to work with cheerio to provide unobtrusive templating
 - Open ```http://localhost:3000``` in a browser
 
 ## Branches
-- simple: Simple example
-- bootstrap: For bootstrap theme
+- *simple:* Simple example
+- *bootstrap:* For bootstrap theme
+- *juno:* Using juno module
 
 ## Templating
 - In ```app.js```, usual templating block is replaced by a simple custom template engine, based in the example of Express documentation: ```http://expressjs.com/en/advanced/developing-template-engines.html```.
