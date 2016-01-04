@@ -52,7 +52,7 @@ app.js
 var juno = require('./juno.js');
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'public'));
 app.set('view engine', 'html');
 app.engine('html', juno);
 
