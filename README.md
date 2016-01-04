@@ -22,30 +22,10 @@ This is an example of how to work with cheerio to provide unobtrusive templating
 ## Branches
 - *simple:* Simple example
 - *bootstrap:* For bootstrap theme
-- *juno:* Using juno module
+- *juno:* Using [juno-cheerio](https://github.com/akobashikawa/juno-cheerio) module
 
 ## Templating
 - In ```app.js```, usual templating block is replaced by a simple custom template engine, based in the example of Express documentation: ```http://expressjs.com/en/advanced/developing-template-engines.html```.
-
-juno.js
-```javascript
-
-var cheerio = require('cheerio');
-var fs = require('fs');
-
-module.exports = function(filePath, options, callback) {
-    fs.readFile(filePath, function(err, content) {
-        if (err) return callback(new Error(err));
-        var html = content.toString();
-        $ = cheerio.load(html);
-        if (typeof options.replaces === 'function') {
-            options.replaces($);
-        }
-        var rendered = $.html();
-        return callback(null, rendered);
-    });
-};
-```
 
 app.js
 ```javascript
@@ -175,3 +155,19 @@ router.get('/about', function(req, res, next) {
 ```
 
 - ```replaces``` is a callback for the custom template engine. It uses cheerio to make replaces in an unobtrusive way.
+
+## Using remote url
+You can use option **url** to indicate remote url as source of html template.
+
+```javascript
+router.get('/', function(req, res, next) {
+    url: 'http://ironsummitmedia.github.io/startbootstrap-clean-blog/index.html',
+    res.render('index', {
+        replaces: function($) {
+            $('title').text('Home');
+            $('h1.title').text('Home');
+            $('.content').text('¡Hola Mundo!');
+        }
+    });
+});
+```
