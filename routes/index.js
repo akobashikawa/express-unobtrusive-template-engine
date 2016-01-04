@@ -44,6 +44,7 @@ function footer($) {
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.render('index', {
+        url: 'http://ironsummitmedia.github.io/startbootstrap-clean-blog/index.html',
         replaces: function($) {
             header($);
             footer($);
