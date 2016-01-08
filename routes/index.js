@@ -5,14 +5,14 @@ var posts = [
     {
         id: 0,
         title: 'Hola',
-        subtitle: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit',
-        body: 'Home uses juno to unobtrusive templating of <a href="http://ironsummitmedia.github.io/startbootstrap-clean-blog/index.html">this remote template</a>',
+        subtitle: 'Juno also can use remote templates',
+        body: 'Home uses juno to unobtrusive templating of <a href="http://ironsummitmedia.github.io/startbootstrap-clean-blog/index.html">http://ironsummitmedia.github.io/startbootstrap-clean-blog/index.html</a>',
         date: 'December 29, 2015'
     },
     {
         id: 1,
         title: 'Hello',
-        subtitle: 'Quo vel ipsum cupiditate porro iure nisi sunt voluptatum debitis ad laboriosam consectetur',
+        subtitle: 'Juno can use local templates in unobtrusive way',
         body: 'About uses juno to unobtrusive templating of local template.',
         date: 'December 28, 2015'
     },
@@ -81,7 +81,7 @@ router.get('/post/:id', function(req, res, next) {
             $('.post-heading h1').text(post.title);
             $('.post-heading .subheading').text(post.subtitle);
             $('.post-heading .meta').text(meta);
-            $('body article .container .row div').text(post.body);
+            $('body article .container .row div').html(post.body);
         }
     });
 });
