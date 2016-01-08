@@ -6,21 +6,21 @@ var posts = [
         id: 0,
         title: 'Hola',
         subtitle: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit suscipit iste, quis minus incidunt repudiandae sequi modi, harum ex fugiat cum dolore amet ipsum distinctio consequuntur culpa architecto maiores! Minima!',
+        body: 'Home uses juno to unobtrusive templating of <a href="http://ironsummitmedia.github.io/startbootstrap-clean-blog/index.html">this remote template</a>',
         date: 'December 29, 2015'
     },
     {
         id: 1,
         title: 'Hello',
         subtitle: 'Quo vel ipsum cupiditate porro iure nisi sunt voluptatum debitis ad laboriosam consectetur',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo vel ipsum cupiditate porro iure nisi sunt voluptatum debitis ad laboriosam consectetur, distinctio voluptas sed, deleniti neque architecto corporis labore officia.',
+        body: 'About uses juno to unobtrusive templating of local template.',
         date: 'December 28, 2015'
     },
     {
         id: 2,
         title: 'Konnichi wa',
         subtitle: 'Aperiam animi excepturi, harum optio quod minima accusantium nostrum totam omnis obcaecati',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod necessitatibus non tempore, magni veritatis optio dignissimos eveniet dolores. Aperiam animi excepturi, harum optio quod minima accusantium nostrum totam omnis obcaecati.',
+        body: 'Post pages use juno to unobtrusive templating of local template.',
         date: 'December 27, 2015'
     }
 ];
