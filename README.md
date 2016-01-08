@@ -15,8 +15,8 @@ This is an example of how to work with cheerio to provide unobtrusive templating
 ## Install
 - Clone the repository
 - Change to the directory
-- ```$ npm install````
-- ```$ npm start````
+- ```$ npm install```
+- ```$ npm start```
 - Open ```http://localhost:3000``` in a browser
 
 ## Branches
